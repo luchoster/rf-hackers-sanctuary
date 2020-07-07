@@ -34,6 +34,9 @@ build/Release
 
 # Dependency directories
 node_modules/
+!/functions/resetpassword/node_modules
+!/functions/export-exhibitors/node_modules
+!/functions/exhibitor-publish-notifications/node_modules
 jspm_packages/
 yarn.lock
 
@@ -54,6 +57,7 @@ typings/
 
 # dotenv environment variables file
 .env
+.env*
 
 # gatsby files
 .cache/
@@ -70,3 +74,6 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Local Netlify folder
+.netlify

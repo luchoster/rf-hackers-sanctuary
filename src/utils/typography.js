@@ -1,25 +1,24 @@
-import Typography from "typography"
+import Typography from 'typography'
 
 const typography = new Typography({
-  baseFontSize: "18px",
+  baseFontSize: '18px',
   baseLineHeight: 1.666,
-  headerFontFamily: [
-    "Avenir Next",
-    "Helvetica Neue",
-    "Segoe UI",
-    "Helvetica",
-    "Arial",
-    "sans-serif",
-  ],
+  headerFontFamily: ['Roboto Mono', 'serif'],
   googleFonts: [
     {
       name: 'Montserrat',
-      styles: [
-        '700',
-      ],
+      styles: ['400']
     },
+    {
+      name: 'Roboto Mono',
+      styles: ['700']
+    },
+    {
+      name: 'Space Mono',
+      styles: ['400', '700']
+    }
   ],
-  bodyFontFamily: ["Montserrat", "serif"],
+  bodyFontFamily: ['Space Mono', 'serif']
 })
 
 export default typography

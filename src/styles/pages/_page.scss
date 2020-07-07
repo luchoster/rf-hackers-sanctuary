@@ -1,0 +1,25 @@
+.page {
+  padding-top: 150px;
+  @include modifier('home') {
+    display: grid;
+    grid-template-areas: 'featuredImg' 'content';
+    align-items: center;
+    @include element('featured_img') {
+      max-height: 50vh;
+      opacity: 0.5;
+      cursor: move;
+      grid-area: featuredImg;
+    }
+    @include element('content') {
+      grid-area: content;
+      @include element('title') {
+      }
+      @include element('intro') {
+      }
+    }
+    @include breakpoint(lg) {
+      grid-template-areas: 'content featuredImg';
+      grid-template-columns: 4fr 2fr;
+    }
+  }
+}

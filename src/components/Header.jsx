@@ -1,27 +1,283 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+import Headroom from 'react-headroom'
 import {
-  AppBar,
-  IconButton,
-  Typography,
-  Toolbar,
+  Collapse,
+  Drawer,
+  List,
+  ListSubheader,
+  ListItem,
+  ListItemText
 } from '@material-ui/core'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import { ExpandLess, ExpandMore } from '@material-ui/icons'
 
-import MenuIcon from '@material-ui/icons/Menu'
+import { mapIndexed } from '../lib/Helpers'
 
-export default () => (
-  <header className="header">
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu">
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6">Hello</Typography>
-      </Toolbar>
-    </AppBar>
-    <img
-      src="https://lucho.dev/icons/icon-256x256.png"
-      alt="Luchoster's logo"
-      className="logo"
-    />
-  </header>
-)
+export default () => {
+  const [drawerOpen, setDrawerOpen] = React.useState(false)
+  const [activeDropdown, setActiveDropdown] = React.useState('')
+  const [open, setOpen] = React.useState(true)
+
+  const DropdownParent = React.useRef(null)
+
+  React.useEffect(() => {
+    // loadReCaptcha(process.env.GATSBY_GOOGLE_RECAPTCHA)
+    // typeof document !== 'undefined' &&
+    //   document.querySelector('.page').addEventListener('click', toggleDropdown)
+  }, [])
+
+  function toggleDropdown() {
+    console.log('hi')
+    typeof document !== 'undefined' &&
+      document.querySelector('.dropotron').classList.contains('active') &&
+      setActiveDropdown('')
+  }
+
+  function handleClick() {
+    setOpen(!open)
+  }
+
+  const data = useStaticQuery(graphql`
+    {
+      menuItems: sanityMainMenu {
+        id
+        items {
+          slug
+          page_title
+          subMenu {
+            subMenuSlug
+            subMenuTitle
+          }
+        }
+      }
+      siteSettings: sanitySiteSettings {
+        logo {
+          asset {
+            fluid(maxHeight: 200) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  function toggleDrawer() {
+    setDrawerOpen(!drawerOpen)
+  }
+
+  const { items } = data.menuItems
+  const settings = data.siteSettings
+
+  return (
+    <Headroom>
+      <header id="header">
+        <div className="logo">
+          <AniLink
+            cover
+            to="/"
+            duration={2}
+            direction="down"
+            bg={`
+              url(${settings.logo.asset.fluid.src})
+              center / auto    /* position / size */
+              no-repeat        /* repeat */
+              fixed            /* attachment */
+              padding-box      /* origin */
+              content-box      /* clip */
+              white            /* color */
+            `}
+          >
+            <img
+              src={settings.logo.asset.fluid.src}
+              alt="RF Hackers Sanctuary Logo"
+            />
+          </AniLink>
+        </div>
+        <div onClick={toggleDrawer} className="navPanelToggle" />
+        <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer}>
+          <List
+            component="nav"
+            aria-labelledby="nested-list-subheader"
+            subheader={
+              <ListSubheader component="div" id="nested-list-subheader">
+                Main Menu
+              </ListSubheader>
+            }
+          >
+            <ListItem button>
+              <AniLink
+                cover
+                onClick={toggleDrawer}
+                className="title"
+                to="/"
+                duration={2}
+                direction="down"
+                bg={`
+                  url(${settings.logo.asset.fluid.srcWebp})
+                  center / auto    /* position / size */
+                  no-repeat        /* repeat */
+                  fixed            /* attachment */
+                  padding-box      /* origin */
+                  content-box      /* clip */
+                  #00adee          /* color */
+                `}
+              >
+                Home
+              </AniLink>
+            </ListItem>
+            {mapIndexed((item, index) =>
+              item.subMenu.length > 0 ? (
+                <>
+                  <ListItem button onClick={handleClick}>
+                    <ListItemText primary={item.page_title} />
+                    {open ? <ExpandLess /> : <ExpandMore />}
+                  </ListItem>
+                  <Collapse in={open} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                      {mapIndexed((subMenuItem, i) => (
+                        <ListItem button key={i}>
+                          <AniLink
+                            cover
+                            className="title"
+                            to={`/${subMenuItem.subMenuSlug}`}
+                            duration={2}
+                            direction="down"
+                            bg={`
+                              url(${settings.logo.asset.fluid.srcWebp})
+                              center / auto    /* position / size */
+                              no-repeat        /* repeat */
+                              fixed            /* attachment */
+                              padding-box      /* origin */
+                              content-box      /* clip */
+                              #00adee          /* color */
+                            `}
+                          >
+                            <ListItemText primary={subMenuItem.subMenuTitle} />
+                          </AniLink>
+                        </ListItem>
+                      ))(item.subMenu)}
+                      <ListItem button />
+                    </List>
+                  </Collapse>
+                </>
+              ) : (
+                <ListItem button key={index}>
+                  <AniLink
+                    cover
+                    className="title"
+                    to={`/${item.slug}`}
+                    duration={2}
+                    direction="down"
+                    bg={`
+                      url(${settings.logo.asset.fluid.srcWebp})
+                      center / auto    /* position / size */
+                      no-repeat        /* repeat */
+                      fixed            /* attachment */
+                      padding-box      /* origin */
+                      content-box      /* clip */
+                      #00adee          /* color */
+                    `}
+                  >
+                    {item.page_title}
+                  </AniLink>
+                </ListItem>
+              )
+            )(items)}
+          </List>
+        </Drawer>
+        <nav id="nav">
+          <ul>
+            <li>
+              <AniLink
+                cover
+                className="title"
+                to="/"
+                duration={2}
+                direction="down"
+                bg={`
+                  url(${settings.logo.asset.fluid.srcWebp})
+                  center / auto    /* position / size */
+                  no-repeat        /* repeat */
+                  fixed            /* attachment */
+                  padding-box      /* origin */
+                  content-box      /* clip */
+                  #00adee          /* color */
+                `}
+              >
+                Home
+              </AniLink>
+            </li>
+            {mapIndexed((item, index) =>
+              item.subMenu.length > 0 ? (
+                <li key={index}>
+                  <div
+                    className="dropdown link"
+                    onClick={() =>
+                      item === activeDropdown
+                        ? setActiveDropdown('')
+                        : setActiveDropdown(item)
+                    }
+                    ref={DropdownParent}
+                  >
+                    {item.page_title}
+                  </div>
+                  <ul
+                    className={`dropotron level-0 center animated ${
+                      item === activeDropdown ? 'active fadeIn' : 'fadeOut'
+                    }`}
+                  >
+                    {mapIndexed((subMenuItem, i) => (
+                      <li key={i}>
+                        <AniLink
+                          cover
+                          className="title"
+                          to={`/${subMenuItem.subMenuSlug}`}
+                          duration={2}
+                          direction="down"
+                          bg={`
+                              url(${settings.logo.asset.fluid.src})
+                              center / auto    /* position / size */
+                              no-repeat        /* repeat */
+                              fixed            /* attachment */
+                              padding-box      /* origin */
+                              content-box      /* clip */
+                              #00adee          /* color */
+                            `}
+                        >
+                          {subMenuItem.subMenuTitle}
+                        </AniLink>
+                      </li>
+                    ))(item.subMenu)}
+                  </ul>
+                </li>
+              ) : (
+                <li key={index}>
+                  <AniLink
+                    cover
+                    className="title"
+                    to={`/${item.slug}`}
+                    duration={2}
+                    direction="down"
+                    bg={`
+                      url(${settings.logo.asset.fluid.src})
+                      center / auto    /* position / size */
+                      no-repeat        /* repeat */
+                      fixed            /* attachment */
+                      padding-box      /* origin */
+                      content-box      /* clip */
+                      #00adee          /* color */
+                    `}
+                  >
+                    {item.page_title}
+                  </AniLink>
+                </li>
+              )
+            )(items)}
+          </ul>
+        </nav>
+      </header>
+    </Headroom>
+  )
+}

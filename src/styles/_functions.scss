@@ -35,3 +35,10 @@
 @function _palette($keys...) {
   @return val($palette, $keys...);
 }
+
+/// Gets a palette value.
+/// @param {string} $keys Key(s).
+/// @return {string} Value.
+@function _size($keys...) {
+  @return val($palette, $keys...);
+}

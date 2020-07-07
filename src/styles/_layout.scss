@@ -45,6 +45,13 @@ body {
   /* color: #61dafb; */
 }
 
+main {
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  grid-template-rows: auto 1.5fr;
+  min-height: 100vh;
+}
+
 @keyframes Logo-spin {
   from {
     transform: rotate(0deg);
@@ -52,4 +59,13 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.deg-90 {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  -webkit-box-pack: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transform: scale(1);
 }
