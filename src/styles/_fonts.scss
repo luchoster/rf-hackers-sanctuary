@@ -1,19 +1,29 @@
 h1 {
-  font-size: 120px;
+  @include breakpoint(lg) {
+    font-size: 120px;
+  }
 }
 h2 {
-  font-size: 52px;
   color: _palette(primary);
+  @include breakpoint(lg) {
+    font-size: 52px;
+  }
 }
 h3 {
-  font-size: 32px;
   color: _palette(primary);
+  @include breakpoint(lg) {
+    font-size: 32px;
+  }
 }
 h4 {
-  font-size: 22px;
   color: _palette(secondary);
+  @include breakpoint(lg) {
+    font-size: 22px;
+  }
 }
 h5 {
-  font-size: 19px;
   color: _palette(black);
+  @include breakpoint(lg) {
+    font-size: 19px;
+  }
 }
