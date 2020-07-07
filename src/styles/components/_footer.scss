@@ -1,8 +1,10 @@
 footer {
   max-width: 50px;
-  height: 100vh;
+  min-height: 100vh;
   .footer-container {
-    position: relative;
+    bottom: 0;
+    left: 10px;
+    position: fixed;
     padding-bottom: 25px;
     height: 100%;
     display: flex;

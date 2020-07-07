@@ -4,6 +4,7 @@
     display: grid;
     grid-template-areas: 'featuredImg' 'content';
     align-items: center;
+    min-height: 100vh;
     @include element('featured_img') {
       max-height: 50vh;
       opacity: 0.5;
@@ -13,13 +14,19 @@
     @include element('content') {
       grid-area: content;
       @include element('title') {
+        color: _palette(black);
       }
       @include element('intro') {
       }
     }
     @include breakpoint(lg) {
+      grid-gap: 75px;
       grid-template-areas: 'content featuredImg';
       grid-template-columns: 4fr 2fr;
+      @include element('content') {
+        justify-self: center;
+        max-width: 70%;
+      }
     }
   }
 }

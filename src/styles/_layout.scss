@@ -42,12 +42,12 @@ body {
 }
 
 .link {
-  /* color: #61dafb; */
+  color: _palette(secondary);
 }
 
 main {
   display: grid;
-  grid-template-columns: 50px 1fr 50px;
+  grid-template-columns: 50px 1fr 10px;
   grid-template-rows: auto 1.5fr;
   min-height: 100vh;
 }

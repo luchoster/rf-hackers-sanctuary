@@ -1,2 +1,19 @@
-body {
+h1 {
+  font-size: 120px;
+}
+h2 {
+  font-size: 52px;
+  color: _palette(primary);
+}
+h3 {
+  font-size: 32px;
+  color: _palette(primary);
+}
+h4 {
+  font-size: 22px;
+  color: _palette(secondary);
+}
+h5 {
+  font-size: 19px;
+  color: _palette(black);
 }

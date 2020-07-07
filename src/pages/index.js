@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 
 const imageVariants = {
-  hover: { scale: 1.1 }
+  hover: { scale: 1.05 }
 }
 
 const frameVariants = {
@@ -27,9 +27,13 @@ export default props => {
       <SEO title="Home | RF Hackers Santuary" />
       <div className="page page--home" ref={pageRef}>
         <div className="page--home__content">
-          <h1 className="text--center animated fadeIn page--home__content__title">
+          <h2
+            data-text={homePage.content_title}
+            className="animated fadeIn page--home__content__title glitch"
+          >
             {homePage.content_title}
-          </h1>
+          </h2>
+          <div className="glow">{homePage.content_title}</div>
           <p className="text--center animated fadeIn page--home__content__intro">
             {homePage.content_intro}
           </p>
