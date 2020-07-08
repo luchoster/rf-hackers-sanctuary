@@ -47,7 +47,7 @@ const ScrollContainer = ({ children }) => {
   }, [scrollYmotionValue])
 
   return (
-    <>
+    <motion.div className="scroll-container-wrapper">
       <motion.div
         ref={scrollContainerRef}
         style={{ y: scrollYtransition }}
@@ -55,7 +55,8 @@ const ScrollContainer = ({ children }) => {
       >
         {children}
       </motion.div>
-    </>
+      <div style={{ height: contentHeight }} />
+    </motion.div>
   )
 }
 

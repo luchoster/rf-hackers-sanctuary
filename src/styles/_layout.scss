@@ -69,3 +69,12 @@ main {
   font-size: 0.8rem;
   transform: scale(1);
 }
+
+.scroll-container-wrapper {
+  position: relative;
+  padding: 100px 0 150px;
+  .scroll-container {
+    position: fixed;
+    will-change: transform;
+  }
+}

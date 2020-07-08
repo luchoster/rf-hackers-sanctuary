@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
@@ -53,10 +54,10 @@ export default props => {
   return (
     <Layout>
       <SEO title="Page" />
-      <div className={`page page--${page.slug.current}`} ref={pageRef}>
+      <motion.div className={`page page--${page.slug.current}`} ref={pageRef}>
         <h1>{page.pageTitle}</h1>
         <div className="pt-24">{content}</div>
-      </div>
+      </motion.div>
     </Layout>
   )
 }

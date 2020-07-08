@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserView, MobileView } from 'react-device-detect'
 import Loadable from 'react-loadable'
+import { motion } from 'framer-motion'
 
 // custom components
 import Header from './Header'
@@ -18,13 +19,13 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <main>
+      <motion.main>
         <Footer />
         <BrowserView>
           <ScrollContainer>{children}</ScrollContainer>
         </BrowserView>
         <MobileView>{children}</MobileView>
-      </main>
+      </motion.main>
     </>
   )
 }

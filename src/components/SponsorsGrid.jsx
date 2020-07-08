@@ -7,7 +7,7 @@ export default props => {
   const containerRef = React.useRef(null)
 
   return (
-    <div ref={containerRef}>
+    <motion.div ref={containerRef}>
       {mapIndexed((img, index) => {
         return (
           <motion.img
@@ -17,6 +17,6 @@ export default props => {
           />
         )
       })(props.list)}
-    </div>
+    </motion.div>
   )
 }

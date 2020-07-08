@@ -1,5 +1,6 @@
 .page {
   padding-top: 150px;
+  position: relative;
   @include modifier('home') {
     display: grid;
     grid-template-areas: 'featuredImg' 'content';
