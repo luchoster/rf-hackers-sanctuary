@@ -75,13 +75,14 @@ export default () => {
       <header id="header">
         <div className="logo">
           <AniLink
-            cover
+            paintDrip
             to="/"
-            duration={2}
+            duration={1}
             direction="down"
+            color="black"
             bg={`
-              url(${settings.logo.asset.fluid.src})
-              center / auto    /* position / size */
+              url(${require('../assets/img/web_background.jpg')})
+              center / cover   /* position / size */
               no-repeat        /* repeat */
               fixed            /* attachment */
               padding-box      /* origin */
@@ -115,7 +116,7 @@ export default () => {
                 duration={2}
                 direction="down"
                 bg={`
-                  url(${settings.logo.asset.fluid.srcWebp})
+                  url(${require('../assets/img/web_background.jpg')})
                   center / auto    /* position / size */
                   no-repeat        /* repeat */
                   fixed            /* attachment */
@@ -145,7 +146,7 @@ export default () => {
                             duration={2}
                             direction="down"
                             bg={`
-                              url(${settings.logo.asset.fluid.srcWebp})
+                              url(${require('../assets/img/web_background.jpg')})
                               center / auto    /* position / size */
                               no-repeat        /* repeat */
                               fixed            /* attachment */
@@ -171,7 +172,7 @@ export default () => {
                     duration={2}
                     direction="down"
                     bg={`
-                      url(${settings.logo.asset.fluid.srcWebp})
+                      url(${require('../assets/img/web_background.jpg')})
                       center / auto    /* position / size */
                       no-repeat        /* repeat */
                       fixed            /* attachment */
@@ -197,7 +198,7 @@ export default () => {
                 duration={2}
                 direction="down"
                 bg={`
-                  url(${settings.logo.asset.fluid.srcWebp})
+                  url(${require('../assets/img/web_background.jpg')})
                   center / auto    /* position / size */
                   no-repeat        /* repeat */
                   fixed            /* attachment */
