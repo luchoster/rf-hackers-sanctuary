@@ -22,7 +22,6 @@ export default props => {
     .filter(c => !c.disabled)
     .map((c, i) => {
       let el = null
-      console.log(c)
       switch (c._type) {
         case 'sponsors':
           el = <SponsorsGrid key={c._key} {...c} />

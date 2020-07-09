@@ -61,6 +61,9 @@ export default class Cell extends Component {
         >
           <div
             className="thumbs-wrapper"
+            onClick={() =>
+              typeof window != 'undefinded' && window.scrollTo(0, 0)
+            }
             style={{
               background: `url(${avatar.asset.url}) 90% center / contain no-repeat`
             }}
