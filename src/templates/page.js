@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { config } from 'react-spring/renderprops'
+import { isMobile } from 'react-device-detect'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
@@ -43,7 +44,7 @@ export default props => {
               // Can be a fixed value or an individual data accessor
               heights={d => 300}
               // Number of columns
-              columns={2}
+              columns={isMobile ? 1 : 2}
               // Space between elements
               margin={30}
               // Removes the possibility to scroll away from a maximized element
