@@ -68,6 +68,11 @@ main {
   justify-content: center;
   font-size: 0.8rem;
   transform: scale(1);
+  @include modifier('rl') {
+    writing-mode: vertical-rl;
+    transform: scale(-1);
+    padding-left: 20px;
+  }
 }
 
 .scroll-container-wrapper {
@@ -76,5 +81,9 @@ main {
   .scroll-container {
     position: fixed;
     will-change: transform;
+    max-width: calc(100% - 75px);
+    @include breakpoint(lg) {
+      max-width: 100%;
+    }
   }
 }
