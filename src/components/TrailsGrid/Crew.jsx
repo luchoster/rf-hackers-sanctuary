@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import { config } from 'react-spring/renderprops'
 import Img from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 import BlockContent from '../BlockContent'
 
 import { Slug, Fade } from './Primitives'
+import { notNilOrEmpty } from '../../lib/Helpers'
 // import 'antd/dist/antd.css'
 
 export default class Cell extends Component {
@@ -47,6 +49,54 @@ export default class Cell extends Component {
                 <h1 className="title deg-90--rl">{title}</h1>
                 <div className="details__member__content">
                   <BlockContent blocks={intro} />
+                  <div style={{ height: 50 }} />
+                  <ul className="social-links">
+                    {notNilOrEmpty(email) && (
+                      <li>
+                        <FontAwesomeIcon
+                          icon={faEnvelope}
+                          className="icon social-icons color--secondary"
+                          size="2x"
+                          onClick={toggle}
+                        />
+                        <a href={`mailto:${email}`}>{email}</a>
+                      </li>
+                    )}
+                    {notNilOrEmpty(website) && (
+                      <li>
+                        <FontAwesomeIcon
+                          icon={faGlobe}
+                          className="icon social-icons color--secondary"
+                          size="2x"
+                          onClick={toggle}
+                        />
+                        <a
+                          href={website}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          {website}
+                        </a>
+                      </li>
+                    )}
+                    {notNilOrEmpty(twitter_handle) && (
+                      <li>
+                        <FontAwesomeIcon
+                          icon={faTwitter}
+                          className="icon social-icons color--secondary"
+                          size="2x"
+                          onClick={toggle}
+                        />
+                        <a
+                          href={`https://twitter.com/${twitter_handle}`}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          {twitter_handle}
+                        </a>
+                      </li>
+                    )}
+                  </ul>
                 </div>
               </div>
             </Slug>

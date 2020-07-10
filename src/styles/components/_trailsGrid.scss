@@ -16,7 +16,10 @@
   line-height: 10px;
   &.crew {
     position: absolute;
-    max-height: 50vh;
+    max-height: calc(100vh - 250px);
+    @include breakpoint(lg) {
+      max-height: 50vh;
+    }
   }
 }
 
@@ -83,6 +86,11 @@
     line-height: 18px;
     font-weight: 600;
     z-index: 5;
+    @include breakpoint(lg) {
+      font-size: 3rem;
+      line-height: 1;
+      opacity: 0.1;
+    }
   }
   p {
     color: #212121;
@@ -94,13 +102,12 @@
     text-transform: initial;
   }
   @include element('member') {
-    align-items: center;
     display: flex;
     height: 100%;
     justify-content: center;
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 50px;
+    padding: 20px;
     position: relative;
     &.bg {
       background-repeat: no-repeat;
@@ -119,7 +126,31 @@
       }
     }
     @include element('content') {
-      max-width: 50%;
+      max-width: 90%;
+      padding-top: 40px;
+      @include breakpoint(lg) {
+        padding-top: 0;
+      }
+      .social-links {
+        li {
+          align-items: center;
+          display: flex;
+          font-size: 18px;
+          text-transform: lowercase;
+          .social-icons {
+            margin: 0 10px;
+          }
+        }
+      }
+    }
+    @include breakpoint(lg) {
+      align-items: center;
+      padding: 50px;
+    }
+  }
+  &-wrapper {
+    @include modifier('open') {
+      max-width: calc(100% - 2px);
     }
   }
 }
@@ -162,6 +193,12 @@
 
 .grid {
   flex: 1;
+  &.crew {
+    @include breakpoint(lg) {
+      max-width: 60%;
+      margin: 0px auto;
+    }
+  }
 }
 
 .ant-btn-primary {

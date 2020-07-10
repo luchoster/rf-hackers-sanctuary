@@ -77,13 +77,11 @@ main {
 
 .scroll-container-wrapper {
   position: relative;
-  padding: 100px 0 150px;
+  padding: 100px 50px 150px;
   .scroll-container {
     position: fixed;
     will-change: transform;
     max-width: calc(100% - 75px);
-    @include breakpoint(lg) {
-      max-width: 100%;
-    }
+    width: 100%;
   }
 }

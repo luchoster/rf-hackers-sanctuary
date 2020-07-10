@@ -30,7 +30,7 @@ export default class Grid extends React.Component {
   }
   static defaultProps = {
     occupySpace: true,
-    columns: 3,
+    columns: 2,
     margin: 0,
     heights: 400,
     lockScroll: false,
@@ -157,7 +157,7 @@ export default class Grid extends React.Component {
                           width,
                           height,
                           zIndex:
-                            lastOpen === c.key || open === c.key ? 1000 : i,
+                            lastOpen === c.key || open === c.key ? 2500 : i,
                           transform: interpolate(
                             [x, y],
                             (x, y) => `translate3d(${x}px,${y}px, 0)`
@@ -166,6 +166,7 @@ export default class Grid extends React.Component {
                         children={children(c.object, open === c.key, () =>
                           this.toggle(c.key)
                         )}
+                        className="details-wrapper--open"
                       />
                     )}
                   </Transition>
