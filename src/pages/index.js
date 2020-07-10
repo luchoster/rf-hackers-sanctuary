@@ -35,7 +35,7 @@ export default props => {
             {homePage.content_title}
           </h2>
           <div className="glow">{homePage.content_title}</div>
-          <p className="text--center animated fadeIn page--home__content__intro">
+          <p className="animated fadeIn page--home__content__intro">
             {homePage.content_intro}
           </p>
         </div>

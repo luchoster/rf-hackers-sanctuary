@@ -1,6 +1,9 @@
 .page {
   padding-top: 120px;
   position: relative;
+  @include breakpoint(lg) {
+    padding: 150px 50px 0;
+  }
   @include modifier('home') {
     display: grid;
     grid-template-areas: 'featuredImg' 'content';
@@ -24,13 +27,11 @@
       grid-gap: 75px;
       grid-template-areas: 'content featuredImg';
       grid-template-columns: 4fr 2fr;
+      padding-top: 0;
       @include element('content') {
         justify-self: center;
         max-width: 70%;
       }
     }
-  }
-  @include breakpoint(lg) {
-    padding-top: 150px;
   }
 }

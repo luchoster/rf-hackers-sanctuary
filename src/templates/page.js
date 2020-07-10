@@ -88,6 +88,9 @@ export default props => {
     <Layout>
       <SEO title="Page" />
       <motion.div className={`page page--${page.slug.current}`} ref={pageRef}>
+        <h1 className="glitch" data-text={page.pageTitle}>
+          {page.pageTitle}
+        </h1>
         {content}
       </motion.div>
     </Layout>

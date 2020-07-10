@@ -54,7 +54,7 @@ export default () => {
       siteSettings: sanitySiteSettings {
         logo {
           asset {
-            fluid(maxHeight: 200) {
+            fluid {
               ...GatsbySanityImageFluid
             }
           }
@@ -79,7 +79,7 @@ export default () => {
             to="/"
             duration={1}
             direction="down"
-            color="black"
+            hex="#212121"
             bg={`
               url(${require('../assets/img/web_background.jpg')})
               center / cover   /* position / size */
@@ -109,7 +109,8 @@ export default () => {
           >
             <ListItem button>
               <AniLink
-                cover
+                paintDrip
+                hex="#212121"
                 onClick={toggleDrawer}
                 className="title"
                 to="/"
@@ -140,7 +141,8 @@ export default () => {
                       {mapIndexed((subMenuItem, i) => (
                         <ListItem button key={i}>
                           <AniLink
-                            cover
+                            paintDrip
+                            hex="#212121"
                             className="title"
                             to={`/${subMenuItem.subMenuSlug}`}
                             duration={2}
@@ -166,7 +168,8 @@ export default () => {
               ) : (
                 <ListItem button key={index}>
                   <AniLink
-                    cover
+                    paintDrip
+                    hex="#212121"
                     className="title"
                     to={`/${item.slug}`}
                     duration={2}
@@ -192,7 +195,8 @@ export default () => {
           <ul>
             <li>
               <AniLink
-                cover
+                paintDrip
+                hex="#212121"
                 className="title"
                 to="/"
                 duration={2}
@@ -232,7 +236,8 @@ export default () => {
                     {mapIndexed((subMenuItem, i) => (
                       <li key={i}>
                         <AniLink
-                          cover
+                          paintDrip
+                          hex="#212121"
                           className="title"
                           to={`/${subMenuItem.subMenuSlug}`}
                           duration={2}
@@ -256,7 +261,8 @@ export default () => {
               ) : (
                 <li key={index}>
                   <AniLink
-                    cover
+                    paintDrip
+                    hex="#212121"
                     className="title"
                     to={`/${item.slug}`}
                     duration={2}

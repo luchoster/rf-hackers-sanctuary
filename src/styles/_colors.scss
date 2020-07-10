@@ -1,0 +1,38 @@
+.color {
+  @include modifier('black') {
+    color: black;
+  }
+  @include modifier('yellow') {
+    color: _palette(yellow);
+  }
+  @include modifier('white') {
+    color: white;
+  }
+  @include modifier('primary') {
+    color: _palette(primary);
+  }
+  @include modifier('secondary') {
+    color: _palette(secondary);
+  }
+}
+
+.link {
+  @include modifier('black') {
+    color: black;
+    &:hover {
+      color: _palette(primary);
+    }
+  }
+  @include modifier('yellow') {
+    color: _palette(yellow);
+    &:hover {
+      color: black;
+    }
+  }
+  @include modifier('white') {
+    color: white;
+    &:hover {
+      color: _palette(yellow);
+    }
+  }
+}
