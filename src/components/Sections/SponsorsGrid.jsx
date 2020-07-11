@@ -10,8 +10,10 @@ export default props => {
     <motion.div className="list" ref={containerRef}>
       {mapIndexed((img, index) => {
         return (
-          <motion.div className="">
-            <motion.img src={img.logo.asset.url} />
+          <motion.div className="sponsor-img">
+            <a href={img.url} target="_blank" rel="noopener noreferrer">
+              <motion.img src={img.logo.asset.url} />
+            </a>
           </motion.div>
         )
       })(props.list)}

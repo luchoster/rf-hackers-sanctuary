@@ -92,15 +92,23 @@
   height: 350px;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
   background-color: _palette(white);
   background-size: cover;
   background-position: center;
+  a {
+    &:hover {
+      img {
+        transform: scale(1.15, 1.15) rotate(-5deg);
+        transition: all 0.5s ease-in-out;
+      }
+    }
+  }
   img {
     object-fit: scale-down;
     height: 100%;
     margin: 0;
     padding: 0;
+    transition: all 0.5s ease-in-out;
   }
 }
 
