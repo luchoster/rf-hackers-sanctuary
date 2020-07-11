@@ -9,7 +9,10 @@ import { useMotionValue, useSpring, motion } from 'framer-motion'
 import ResizeObserver from 'resize-observer-polyfill'
 
 const ScrollContainer = ({ children }) => {
-  const [contentHeight, setContentHeight] = useState(window.innerHeight)
+  console.log(document.querySelector('.page').clientHeight)
+  const [contentHeight, setContentHeight] = useState(
+    document.querySelector('.page').clientHeight
+  )
   const scrollContainerRef = useRef(null)
   const scrollYmotionValue = useMotionValue(
     -window.pageYOffset || -window.scrollY
@@ -55,7 +58,7 @@ const ScrollContainer = ({ children }) => {
       >
         {children}
       </motion.div>
-      <div style={{ height: contentHeight }} />
+      <div className="scroll-height" style={{ height: contentHeight }} />
     </motion.div>
   )
 }

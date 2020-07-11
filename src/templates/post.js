@@ -24,21 +24,21 @@ export default props => {
     <Layout>
       <SEO title={post.title} />
       <motion.div className={`page page--${post.slug.current}`} ref={pageRef}>
+        <h2 className="color--black">{post.title}</h2>
         <motion.div className="container">
-          <h1 className="">{post.title}</h1>
           <BlockContent blocks={post._rawBody} />
-          <div style={{ height: 20 }} />
-          <hr style={{ width: 100 }} />
-          <div style={{ height: 20 }} />
-          <AniLink
-            className="btn"
-            paintDrip
-            duration={1}
-            to="/blog"
-            hex="#212121"
-          >
-            All Posts
-          </AniLink>
+          <div className="all-posts-link">
+            <AniLink
+              className="btn"
+              paintDrip
+              hex="#212121"
+              to="/blog"
+              duration={1.5}
+              direction="down"
+            >
+              All Posts
+            </AniLink>
+          </div>
         </motion.div>
       </motion.div>
     </Layout>

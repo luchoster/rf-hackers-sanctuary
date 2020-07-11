@@ -32,9 +32,10 @@ export default props => {
                 <AniLink
                   className="btn"
                   paintDrip
-                  duration={1}
-                  to={`/blog/${post.slug.current}`}
                   hex="#212121"
+                  to={`/blog/${post.slug.current}`}
+                  duration={1.5}
+                  direction="down"
                 >
                   Read More
                 </AniLink>

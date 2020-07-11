@@ -19,11 +19,26 @@ const ScrollContainer = Loadable({
   }
 })
 
+const contentVariant = {
+  mounting: { visibility: 'hidden' },
+  mounted: { visibility: 'visible', transition: { duration: 0 } }
+}
+
 const Layout = ({ children }) => {
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
     <>
       <Header />
-      <motion.main>
+      <motion.main
+        variants={contentVariant}
+        initial="mounting"
+        animate={mounted ? 'mounted' : 'mounting'}
+      >
         <Footer />
         <BrowserView>
           <ScrollContainer>{children}</ScrollContainer>

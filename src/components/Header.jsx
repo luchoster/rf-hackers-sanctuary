@@ -11,8 +11,13 @@ import {
 } from '@material-ui/core'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { ExpandLess, ExpandMore } from '@material-ui/icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { mapIndexed } from '../lib/Helpers'
+library.add(fab)
 
 export default () => {
   const [drawerOpen, setDrawerOpen] = React.useState(false)
@@ -96,7 +101,13 @@ export default () => {
             />
           </AniLink>
         </div>
-        <div onClick={toggleDrawer} className="navPanelToggle" />
+        <FontAwesomeIcon
+          icon={faBars}
+          mask={['circle']}
+          size="2x"
+          className="navPanelToggle"
+          onClick={toggleDrawer}
+        />
         <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer}>
           <List
             component="nav"
