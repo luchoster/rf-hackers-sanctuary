@@ -7,10 +7,10 @@ export default props => {
   const containerRef = React.useRef(null)
 
   return (
-    <motion.div className="masonry" ref={containerRef}>
+    <motion.div className="list" ref={containerRef}>
       {mapIndexed((img, index) => {
         return (
-          <motion.div className="brick">
+          <motion.div className="">
             <motion.img src={img.logo.asset.url} />
           </motion.div>
         )

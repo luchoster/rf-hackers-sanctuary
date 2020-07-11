@@ -1,3 +1,4 @@
+import * as R from 'ramda'
 import React, { Component } from 'react'
 import { config } from 'react-spring/renderprops'
 import Img from 'gatsby-image'
@@ -23,6 +24,7 @@ export default class Cell extends Component {
       twitter_handle,
       website
     } = this.props
+
     return (
       <div
         className="cell crew"
@@ -37,7 +39,11 @@ export default class Cell extends Component {
                   icon={faTimes}
                   className="icon"
                   size="2x"
-                  onClick={toggle}
+                  onClick={() => {
+                    document.body.style.overflowY = 'auto'
+                    document.body.style.height = '100%'
+                    toggle()
+                  }}
                 />
               </div>
               <div
@@ -111,9 +117,11 @@ export default class Cell extends Component {
         >
           <div
             className="thumbs-wrapper"
-            onClick={() =>
+            onClick={() => {
               typeof window != 'undefinded' && window.scrollTo(0, 0)
-            }
+              document.body.style.overflowY = 'hidden'
+              document.body.style.height = '100vh'
+            }}
             style={{
               background: `url(${avatar.asset.url}) 90% center / contain no-repeat`
             }}

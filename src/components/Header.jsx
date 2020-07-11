@@ -114,7 +114,7 @@ export default () => {
                 onClick={toggleDrawer}
                 className="title"
                 to="/"
-                duration={2}
+                duration={1}
                 direction="down"
                 bg={`
                   url(${require('../assets/img/web_background.jpg')})
@@ -145,7 +145,7 @@ export default () => {
                             hex="#212121"
                             className="title"
                             to={`/${subMenuItem.subMenuSlug}`}
-                            duration={2}
+                            duration={1.5}
                             direction="down"
                             bg={`
                               url(${require('../assets/img/web_background.jpg')})
@@ -172,7 +172,7 @@ export default () => {
                     hex="#212121"
                     className="title"
                     to={`/${item.slug}`}
-                    duration={2}
+                    duration={1.5}
                     direction="down"
                     bg={`
                       url(${require('../assets/img/web_background.jpg')})
@@ -199,7 +199,7 @@ export default () => {
                 hex="#212121"
                 className="title"
                 to="/"
-                duration={2}
+                duration={1}
                 direction="down"
                 bg={`
                   url(${require('../assets/img/web_background.jpg')})
@@ -240,7 +240,7 @@ export default () => {
                           hex="#212121"
                           className="title"
                           to={`/${subMenuItem.subMenuSlug}`}
-                          duration={2}
+                          duration={1.5}
                           direction="down"
                           bg={`
                               url(${settings.logo.asset.fluid.src})
@@ -265,7 +265,7 @@ export default () => {
                     hex="#212121"
                     className="title"
                     to={`/${item.slug}`}
-                    duration={2}
+                    duration={1.5}
                     direction="down"
                     bg={`
                       url(${settings.logo.asset.fluid.src})
