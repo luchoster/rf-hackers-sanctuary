@@ -10,8 +10,8 @@ export default ({ node }) => {
     node.asset._id,
     { maxWidth: 675 },
     {
-      projectId: process.env.SANITY_ID,
-      dataset: 'production'
+      projectId: process.env.GATSBY_SANITY_ID,
+      dataset: process.env.GATSBY_SANITY_DATASET
     }
   )
   return (

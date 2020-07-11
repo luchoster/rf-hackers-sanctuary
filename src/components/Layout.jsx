@@ -11,7 +11,11 @@ import '../styles/main.scss'
 const ScrollContainer = Loadable({
   loader: () => import('./ScrollContainer'),
   loading() {
-    return <div>Loading ...</div>
+    return (
+      <div className="page page--center">
+        <div className="container">Loading ...</div>
+      </div>
+    )
   }
 })
 

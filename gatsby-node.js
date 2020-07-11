@@ -54,12 +54,23 @@ async function createSinglePages(graphql, actions, reporter) {
           }
         }
       }
+      allSanityPost {
+        edges {
+          node {
+            slug {
+              current
+            }
+            _id
+          }
+        }
+      }
     }
   `)
 
   if (result.errors) throw result.errors
 
   const pages = (result.data.allSanityPage || {}).edges || []
+  const posts = (result.data.allSanityPost || {}).edges || []
 
   pages.forEach((edge, index) => {
     const { _id, slug = {} } = edge.node
@@ -70,6 +81,18 @@ async function createSinglePages(graphql, actions, reporter) {
     createPage({
       path,
       component: require.resolve('./src/templates/page.js'),
+      context: { _id }
+    })
+  })
+  posts.forEach((edge, index) => {
+    const { _id, slug = {} } = edge.node
+    const path = `blog/${slug.current}/`
+
+    reporter.info(`Creating post: ${path}`)
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/post.js'),
       context: { _id }
     })
   })

@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import { motion } from 'framer-motion'
 import { config } from 'react-spring/renderprops'
 import { isMobile } from 'react-device-detect'

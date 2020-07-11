@@ -86,3 +86,18 @@ main {
     width: 100%;
   }
 }
+
+.btn {
+  border: 1px solid _palette(secondary);
+  padding: 10px 50px;
+  text-decoration: none;
+}
+
+a.btn {
+  @extend .btn;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    background: _palette(secondary);
+    color: _palette(white);
+  }
+}

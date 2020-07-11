@@ -37,6 +37,12 @@
   @include modifier('the-crew') {
     padding-left: 10px;
   }
+  @include modifier('center') {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    padding-top: 0;
+  }
   @include modifier('f0f') {
     align-items: center;
     display: flex;
