@@ -60,7 +60,6 @@ export default ({ node }) => {
   return (
     <animated.div className="customImage-wrapper">
       <figure className="customImage">
-        {console.log(size)}
         <animated.img
           src={node.asset.url}
           alt={node.alt}
