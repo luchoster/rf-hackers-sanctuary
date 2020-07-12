@@ -13,7 +13,7 @@
   // }
   @include modifier('pinned') {
     #header {
-      background: white;
+      background: _palette(bg);
       transition: background 0.25s ease;
       nav a,
       .link {
@@ -33,19 +33,18 @@
 }
 
 #header {
-  display: flex;
   align-items: center;
-  font-family: 'Roboto Mono';
-  height: _size(header-small);
-  line-height: _size(header-small);
-  left: 0;
-  top: 0;
-  width: 95vw;
-  // z-index: _misc(z-index-base);
-  transition: background 0.25s ease;
   background-color: transparent;
   box-shadow: inset 0 -1px 0 0 _palette(border);
+  display: flex;
+  font-family: 'Roboto Mono';
+  height: _size(header-small);
+  left: 0;
+  line-height: _size(header-small);
   margin: 0 auto;
+  top: 0;
+  transition: background 0.25s ease;
+  width: 95vw;
 
   .logo {
     // @include color-typography(accent1);

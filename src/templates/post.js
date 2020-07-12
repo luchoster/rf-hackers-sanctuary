@@ -20,6 +20,7 @@ export default props => {
 
   const pageRef = React.useRef(null)
 
+  console.log(props)
   return (
     <Layout>
       <SEO title={post.title} />
