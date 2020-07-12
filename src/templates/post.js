@@ -47,7 +47,7 @@ export default props => {
 export const pageQuery = graphql`
   query PostTemplateQuery($_id: String!) {
     sanityPost(_id: { eq: $_id }) {
-      _rawBody
+      _rawBody(resolveReferences: { maxDepth: 10 })
       title
       slug {
         current
