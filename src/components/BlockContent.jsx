@@ -3,8 +3,15 @@ import BasePortableText from '@sanity/block-content-to-react'
 import getYoutubeID from 'get-youtube-id'
 import { Link } from 'gatsby'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilePdf } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+
 import { notNilOrEmpty } from '../lib/Helpers'
 import Figure from './Figure'
+
+library.add(fab)
 
 export default props => {
   const _getYTId = value => {
@@ -54,6 +61,7 @@ export default props => {
     },
     types: {
       mainImage: Figure,
+      customImage: Figure,
       youtube: prop => (
         <>
           <iframe
@@ -66,7 +74,20 @@ export default props => {
             width="560"
           />
         </>
-      )
+      ),
+      file: fl => {
+        console.log(fl)
+        return (
+          <a href={fl.node.asset.url}>
+            <FontAwesomeIcon
+              icon={faFilePdf}
+              mask={['circle']}
+              className="icon"
+            />
+            {fl.node.asset.originalFilename}
+          </a>
+        )
+      }
     }
   }
 

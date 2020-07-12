@@ -3,6 +3,7 @@ import Img from 'gatsby-image'
 import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 
 export default ({ node }) => {
+  console.log(node)
   if (!node || !node.asset || !node.asset._id) {
     return null
   }

@@ -299,3 +299,45 @@
 .gatsby-plugin-transition-link-portal {
   z-index: 1500 !important;
 }
+
+// stripe like nav
+.morph-dropdown {
+  position: relative;
+  .morph-dropdown-wrapper {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+  }
+  &.nav-open {
+    .morph-dropdown-wrapper {
+      display: block;
+    }
+  }
+  .dropdown-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+  }
+  .dropdown {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    transition: opacity 0.3s, visibility 0.3s;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .is-dropdown-visible {
+    .bg-layer {
+      opacity: 1;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+  }
+}

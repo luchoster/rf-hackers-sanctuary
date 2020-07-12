@@ -16,7 +16,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
-import { mapIndexed } from '../lib/Helpers'
+import { mapIndexed, notNilOrEmpty } from '../lib/Helpers'
 library.add(fab)
 
 export default () => {
@@ -226,7 +226,7 @@ export default () => {
               </AniLink>
             </li>
             {mapIndexed((item, index) =>
-              item.subMenu.length > 0 ? (
+              notNilOrEmpty(item.subMenu) ? (
                 <li key={index}>
                   <div
                     className="dropdown link"
