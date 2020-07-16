@@ -62,6 +62,16 @@ export default props => {
     types: {
       mainImage: Figure,
       customImage: Figure,
+      urlEmbed: prop => (
+        <>
+          <iframe
+            frameBorder="0"
+            src={prop.node.url}
+            title="Embeded URL"
+            className="url-embed"
+          />
+        </>
+      ),
       youtube: prop => (
         <>
           <iframe
@@ -76,7 +86,6 @@ export default props => {
         </>
       ),
       file: fl => {
-        console.log(fl)
         return (
           <a href={fl.node.asset.url}>
             <FontAwesomeIcon

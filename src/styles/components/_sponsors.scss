@@ -13,13 +13,13 @@
   display: flex;
   margin: 20px;
   flex: 0 0 calc(100% - 40px);
-  height: 350px;
   border-radius: 16px;
   overflow: hidden;
   background-color: _palette(white);
   background-size: cover;
   background-position: center;
   a {
+    display: flex;
     &:hover {
       img {
         transform: scale(1.15, 1.15) rotate(-5deg);
@@ -29,10 +29,18 @@
   }
   img {
     object-fit: scale-down;
-    height: 100%;
     margin: 0;
     padding: 0;
     transition: all 0.5s ease-in-out;
+  }
+  @include breakpoint(lg) {
+    height: 350px;
+    a {
+      display: block;
+    }
+    img {
+      height: 100%;
+    }
   }
 }
 

@@ -20,37 +20,6 @@
   }
 }
 
-.customImage-wrapper {
-  margin: 0 auto;
-}
-
-.customImage {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  img {
-    margin: 0 auto;
-    cursor: pointer;
-  }
-
-  .gatsby-image-wrapper {
-    img {
-      object-fit: scale-down !important;
-    }
-  }
-
-  // @nest & img {
-  //   display: block;
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   vertical-align: top;
-  //   object-fit: cover;
-  // }
-}
 .lightbox-wrapper {
   position: absolute;
   max-height: 100vh;

@@ -2,6 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 import FsLightbox from 'fslightbox-react'
+import { isMobile } from 'react-device-detect'
 import {
   animated,
   useTransition,
@@ -18,9 +19,9 @@ export default ({ node }) => {
   const { h, w, size, opacity, ...rest } = useSpring({
     ref: springRef,
     config: config.stiff,
-    from: { size: '20%' },
+    from: { size: isMobile ? '100%' : '50%' },
     to: {
-      size: open ? '100%' : '20%'
+      size: open ? '100%' : isMobile ? '100%' : '50%'
     }
   })
 
@@ -57,14 +58,19 @@ export default ({ node }) => {
     }
   )
 
+  console.log(node)
+
   return (
-    <animated.div className="customImage-wrapper">
+    <animated.div
+      className={`customImage-wrapper customImage--align--${node.align}`}
+    >
       <figure className="customImage">
         <animated.img
           src={node.asset.url}
           alt={node.alt}
-          onClick={() => set(open => !open)}
+          onClick={() => node.enlarge && set(open => !open)}
           style={{ ...rest, width: size }}
+          className={node.enlarge && 'clickable'}
         />
         <figcaption>{node.caption}</figcaption>
       </figure>

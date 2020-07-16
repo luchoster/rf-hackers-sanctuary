@@ -33,7 +33,6 @@ export default () => {
   }, [])
 
   function toggleDropdown() {
-    console.log('hi')
     typeof document !== 'undefined' &&
       document.querySelector('.dropotron').classList.contains('active') &&
       setActiveDropdown('')
@@ -46,15 +45,7 @@ export default () => {
   const data = useStaticQuery(graphql`
     {
       menuItems: sanityMainMenu {
-        id
-        items {
-          slug
-          page_title
-          subMenu {
-            subMenuSlug
-            subMenuTitle
-          }
-        }
+        _rawItems(resolveReferences: { maxDepth: 2 })
       }
       siteSettings: sanitySiteSettings {
         logo {
@@ -72,7 +63,7 @@ export default () => {
     setDrawerOpen(!drawerOpen)
   }
 
-  const { items } = data.menuItems
+  const { _rawItems: items } = data.menuItems
   const settings = data.siteSettings
 
   return (
@@ -140,8 +131,8 @@ export default () => {
                 Home
               </AniLink>
             </ListItem>
-            {mapIndexed((item, index) =>
-              item.subMenu.length > 0 ? (
+            {mapIndexed((item, index) => {
+              return notNilOrEmpty(item.subMenu) && item.subMenu.length > 0 ? (
                 <>
                   <ListItem button onClick={handleClick}>
                     <ListItemText primary={item.page_title} />
@@ -151,14 +142,15 @@ export default () => {
                     <List component="div" disablePadding>
                       {mapIndexed((subMenuItem, i) => (
                         <ListItem button key={i}>
-                          <AniLink
-                            paintDrip
-                            hex="#212121"
-                            className="title"
-                            to={`/${subMenuItem.subMenuSlug}`}
-                            duration={1.5}
-                            direction="down"
-                            bg={`
+                          {notNilOrEmpty(subMenuItem.subMenuSlug) ? (
+                            <AniLink
+                              paintDrip
+                              hex="#212121"
+                              className="title"
+                              to={`/${subMenuItem.subMenuSlug}`}
+                              duration={1.5}
+                              direction="down"
+                              bg={`
                               url(${require('../assets/img/web_background.jpg')})
                               center / auto    /* position / size */
                               no-repeat        /* repeat */
@@ -167,9 +159,24 @@ export default () => {
                               content-box      /* clip */
                               #00adee          /* color */
                             `}
-                          >
-                            <ListItemText primary={subMenuItem.subMenuTitle} />
-                          </AniLink>
+                            >
+                              <ListItemText
+                                primary={subMenuItem.subMenuTitle}
+                              />
+                            </AniLink>
+                          ) : (
+                            <a
+                              href={subMenuItem.subMenuUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              data-link={subMenuItem.subMenuUrl}
+                              data-title={subMenuItem.subMenuTitle}
+                            >
+                              <ListItemText
+                                primary={subMenuItem.subMenuTitle}
+                              />
+                            </a>
+                          )}
                         </ListItem>
                       ))(item.subMenu)}
                       <ListItem button />
@@ -186,20 +193,20 @@ export default () => {
                     duration={1.5}
                     direction="down"
                     bg={`
-                      url(${require('../assets/img/web_background.jpg')})
-                      center / auto    /* position / size */
-                      no-repeat        /* repeat */
-                      fixed            /* attachment */
-                      padding-box      /* origin */
-                      content-box      /* clip */
-                      #00adee          /* color */
-                    `}
+                    url(${require('../assets/img/web_background.jpg')})
+                    center / auto    /* position / size */
+                    no-repeat        /* repeat */
+                    fixed            /* attachment */
+                    padding-box      /* origin */
+                    content-box      /* clip */
+                    #00adee          /* color */
+                  `}
                   >
                     {item.page_title}
                   </AniLink>
                 </ListItem>
               )
-            )(items)}
+            })(items)}
           </List>
         </Drawer>
         <nav id="nav">
@@ -246,15 +253,16 @@ export default () => {
                   >
                     {mapIndexed((subMenuItem, i) => (
                       <li key={i}>
-                        <AniLink
-                          paintDrip
-                          hex="#212121"
-                          className="title"
-                          to={`/${subMenuItem.subMenuSlug}`}
-                          duration={1.5}
-                          direction="down"
-                          bg={`
-                              url(${settings.logo.asset.fluid.src})
+                        {notNilOrEmpty(subMenuItem.subMenuSlug) ? (
+                          <AniLink
+                            paintDrip
+                            hex="#212121"
+                            className="title"
+                            to={`/${subMenuItem.subMenuSlug}`}
+                            duration={1.5}
+                            direction="down"
+                            bg={`
+                              url(${require('../assets/img/web_background.jpg')})
                               center / auto    /* position / size */
                               no-repeat        /* repeat */
                               fixed            /* attachment */
@@ -262,9 +270,20 @@ export default () => {
                               content-box      /* clip */
                               #00adee          /* color */
                             `}
-                        >
-                          {subMenuItem.subMenuTitle}
-                        </AniLink>
+                          >
+                            {subMenuItem.subMenuTitle}
+                          </AniLink>
+                        ) : (
+                          <a
+                            href={subMenuItem.subMenuUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-link={subMenuItem.subMenuUrl}
+                            data-title={subMenuItem.subMenuTitle}
+                          >
+                            {subMenuItem.subMenuTitle}
+                          </a>
+                        )}
                       </li>
                     ))(item.subMenu)}
                   </ul>
