@@ -1,8 +1,9 @@
 .page {
-  padding-top: 150px;
+  margin-top: 150px;
   position: relative;
   @include breakpoint(lg) {
-    padding: 150px 50px 50px;
+    margin: 150px 50px 50px;
+    padding: 50px;
   }
   @include modifier('home') {
     display: grid;
@@ -17,6 +18,8 @@
     }
     @include element('content') {
       grid-area: content;
+      background: _palette(bg);
+      padding: 30px;
       @include element('title') {
         color: _palette(black);
       }
@@ -27,7 +30,8 @@
       grid-gap: 75px;
       grid-template-areas: 'content featuredImg';
       grid-template-columns: 4fr 2fr;
-      padding-top: 0;
+      margin-top: 0;
+      margin-bottom: 0;
       @include element('content') {
         justify-self: center;
         max-width: 70%;
@@ -48,5 +52,22 @@
     display: flex;
     height: 100vh;
     padding-top: 0;
+  }
+  @include modifier('bg') {
+    // background-color: rgba(229, 230, 224, 0.5);
+    background-color: _palette(bg);
+  }
+  @include modifier('blog') {
+    // background-color: rgba(229, 230, 224, 0.5);
+    background-color: _palette(bg);
+    padding: 20px;
+  }
+  @include modifier('post') {
+    // background-color: rgba(229, 230, 224, 0.5);
+    background-color: _palette(bg);
+    padding: 20px 0;
+    > h2 {
+      padding: 10px;
+    }
   }
 }

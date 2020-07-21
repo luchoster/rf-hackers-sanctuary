@@ -3,6 +3,8 @@ body {
   padding: 0;
   overscroll-behavior: none;
   text-rendering: optimizeLegibility;
+  background: url(../assets/img/web_background.jpg) center / cover no-repeat;
+  background-attachment: fixed;
 }
 
 .container {
@@ -48,7 +50,7 @@ body {
 }
 
 main {
-  background-color: _palette(bg);
+  background-color: rgba(229, 230, 224, 0.5);
   display: grid;
   grid-template-columns: 50px 1fr 10px;
   grid-template-rows: auto 1.5fr;
@@ -80,7 +82,7 @@ main {
 
 .scroll-container-wrapper {
   position: relative;
-  padding: 0 50px;
+  // padding: 0 50px;
   .scroll-container {
     position: fixed;
     will-change: transform;

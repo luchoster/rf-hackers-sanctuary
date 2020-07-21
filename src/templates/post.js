@@ -23,7 +23,10 @@ export default props => {
   return (
     <Layout>
       <SEO title={post.title} />
-      <motion.div className={`page page--${post.slug.current}`} ref={pageRef}>
+      <motion.div
+        className={`page page--post page--${post.slug.current}`}
+        ref={pageRef}
+      >
         <h2 className="color--black">{post.title}</h2>
         <motion.div className="container">
           <BlockContent blocks={post._rawBody} />

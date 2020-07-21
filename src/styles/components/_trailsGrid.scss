@@ -132,11 +132,14 @@
         padding-top: 0;
       }
       .social-links {
+        line-height: 1.5;
+        margin-left: 0;
         li {
           align-items: center;
           display: flex;
           font-size: 18px;
           text-transform: lowercase;
+          flex-wrap: wrap;
           .social-icons {
             margin: 0 10px;
           }
@@ -146,6 +149,10 @@
     @include breakpoint(lg) {
       align-items: center;
       padding: 50px;
+      .social-links {
+        li {
+        }
+      }
     }
   }
   &-wrapper {

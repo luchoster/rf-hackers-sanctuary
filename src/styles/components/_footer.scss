@@ -12,6 +12,7 @@ footer {
     align-items: center;
     justify-content: flex-end;
     .title {
+      color: _palette(black);
     }
     .footer-links {
       list-style: none;
@@ -19,7 +20,7 @@ footer {
       padding: 0;
       li {
         .social_icon {
-          color: _palette(secondary);
+          color: _palette(black);
         }
       }
     }
