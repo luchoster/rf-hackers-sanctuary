@@ -31,31 +31,31 @@ export default props => {
                   <motion.div
                     className="img"
                     style={{
-                      background: `url(${post.mainImage.asset.fluid.src})`
+                      backgroundImage: `url(${post.mainImage.asset.fluid.src})`
                     }}
                   />
                   <motion.div
                     className="img"
                     style={{
-                      background: `url(${post.mainImage.asset.fluid.src})`
+                      backgroundImage: `url(${post.mainImage.asset.fluid.src})`
                     }}
                   />
                   <motion.div
                     className="img"
                     style={{
-                      background: `url(${post.mainImage.asset.fluid.src})`
+                      backgroundImage: `url(${post.mainImage.asset.fluid.src})`
                     }}
                   />
                   <motion.div
                     className="img"
                     style={{
-                      background: `url(${post.mainImage.asset.fluid.src})`
+                      backgroundImage: `url(${post.mainImage.asset.fluid.src})`
                     }}
                   />
                   <motion.div
                     className="img"
                     style={{
-                      background: `url(${post.mainImage.asset.fluid.src})`
+                      backgroundImage: `url(${post.mainImage.asset.fluid.src})`
                     }}
                   />
                 </motion.div>
