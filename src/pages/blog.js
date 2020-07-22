@@ -23,11 +23,45 @@ export default props => {
         <h1 className="glitch" data-text="Blog">
           Blog
         </h1>
-        <div className="blog-posts--wrapper">
+        <div className="blog-posts--wrapper glitch-img-effect">
           {mapIndexed(({ node: post }, index) => {
             return (
               <motion.div className="blog-posts__thumb">
-                <Img className="img" fluid={post.mainImage.asset.fluid} />
+                <motion.div className="glitch-img glitch--style">
+                  <motion.div
+                    className="img"
+                    style={{
+                      background: `url(${post.mainImage.asset.fluid.src})`
+                    }}
+                  />
+                  <motion.div
+                    className="img"
+                    style={{
+                      background: `url(${post.mainImage.asset.fluid.src})`
+                    }}
+                  />
+                  <motion.div
+                    className="img"
+                    style={{
+                      background: `url(${post.mainImage.asset.fluid.src})`
+                    }}
+                  />
+                  <motion.div
+                    className="img"
+                    style={{
+                      background: `url(${post.mainImage.asset.fluid.src})`
+                    }}
+                  />
+                  <motion.div
+                    className="img"
+                    style={{
+                      background: `url(${post.mainImage.asset.fluid.src})`
+                    }}
+                  />
+                </motion.div>
+                {
+                  // <Img className="img" fluid={post.mainImage.asset.fluid} />
+                }
                 <h3 className="color--black">{post.title}</h3>
                 <AniLink
                   className="btn"
