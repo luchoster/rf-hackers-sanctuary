@@ -1,0 +1,23 @@
+.crew {
+  @include element('name') {
+    padding: 20px;
+  }
+  @include element('popup') {
+    width: 100vw;
+    max-height: calc(100vh - 25px);
+    align-items: baseline;
+    flex-direction: column;
+    overflow-y: auto;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    .title {
+      text-align: center !important;
+    }
+    @include breakpoint(xl) {
+      width: 50vw !important;
+    }
+  }
+  .title {
+    color: rgba(0, 0, 0, 0.25);
+  }
+}

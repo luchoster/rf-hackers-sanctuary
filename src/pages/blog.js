@@ -27,7 +27,7 @@ export default props => {
           {mapIndexed(({ node: post }, index) => {
             return (
               <motion.div className="blog-posts__thumb">
-                <motion.div className="glitch-img glitch--style">
+                <motion.div drag className="glitch-img glitch--style">
                   <motion.div
                     className="img"
                     style={{
