@@ -58,8 +58,6 @@ export default ({ node }) => {
     }
   )
 
-  console.log(node)
-
   return (
     <animated.div
       className={`customImage-wrapper customImage--align--${node.align}`}
@@ -69,7 +67,7 @@ export default ({ node }) => {
           src={node.asset.url}
           alt={node.alt}
           onClick={() => node.enlarge && set(open => !open)}
-          style={{ ...rest, width: size }}
+          style={{ ...rest, width: node.enlarge ? size : 'auto' }}
           className={node.enlarge && 'clickable'}
         />
         <figcaption>{node.caption}</figcaption>
