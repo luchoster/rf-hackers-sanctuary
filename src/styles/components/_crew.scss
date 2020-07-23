@@ -1,17 +1,30 @@
 .crew {
-  @include element('name') {
-    padding: 20px;
+  display: grid;
+  @include breakpoint(md) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 75px;
   }
+  @include breakpoint(lg) {
+    max-width: 60%;
+    margin: 0px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 75px;
+  }
+  padding: 20px 0 75px;
   @include element('popup') {
-    width: 100vw;
-    max-height: calc(100vh - 25px);
     align-items: baseline;
     flex-direction: column;
+    max-height: calc(100vh - 25px);
     overflow-y: auto;
     padding-left: 20px !important;
     padding-right: 20px !important;
+    width: 100vw;
     .title {
       text-align: center !important;
+      margin-bottom: 0;
+      font-size: 1.5em;
+      padding-top: 20px;
     }
     @include breakpoint(xl) {
       width: 50vw !important;
@@ -19,5 +32,41 @@
   }
   .title {
     color: rgba(0, 0, 0, 0.25);
+  }
+  .cell {
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: auto 75%;
+    border: 1px solid;
+    color: #777777;
+    display: flex;
+    font-size: 10px;
+    height: 250px;
+    line-height: 10px;
+    overflow: hidden;
+    position: relative;
+    text-transform: uppercase;
+    transition: box-shadow 0.5s;
+    width: 100%;
+    @include breakpoint(lg) {
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .team-member-name {
+      font-size: 1rem;
+      line-height: 1.5;
+      padding: 20px;
+      writing-mode: horizontal-tb;
+      transform: scale(1);
+      @include breakpoint(lg) {
+        font-size: 1.25rem;
+        line-height: 1.5;
+        writing-mode: vertical-rl;
+        transform: scale(-1);
+      }
+    }
   }
 }

@@ -33,7 +33,7 @@ export default props => {
                   title: 'title'
                 },
                 html: (
-                  <div className="crew">
+                  <div className="details">
                     <div
                       className="details__member bg"
                       style={{
@@ -101,11 +101,11 @@ export default props => {
             }
             className="cell"
             style={{
-              background: `url(${person.avatar.asset.url}) right center / contain no-repeat`,
+              backgroundImage: `url(${person.avatar.asset.url})`,
               cursor: 'pointer'
             }}
           >
-            <div className="deg-90--rl crew__name" style={{ zIndex: 1 }}>
+            <div className="deg-90--rl team-member-name" style={{ zIndex: 1 }}>
               <p>{person.title}</p>
             </div>
           </div>
