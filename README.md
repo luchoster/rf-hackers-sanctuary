@@ -1,11 +1,4 @@
-<p align="center">
-  <a href="https://lucho.dev/">
-    <img alt="Luchoster logo" src="https://lucho.dev/icons/icon-192x192.png" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Starter Blank
-</h1>
+# rfhs-frontend
 
 
 Stack and libs:
@@ -16,7 +9,5 @@ Stack and libs:
 * Material-ui
 * SASS (SCSS) support
 * Typography.js
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/luchoster/gatsby-starter-luchoster)
+* Framer Motion
+* React Spring
