@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `RF Hackers Sanctuary`,
     description: `RF Hackers Sanctuary`,
-    author: `@luchoster`
+    author: `@wctf`
   },
   plugins: [
     `gatsby-plugin-material-ui`,
@@ -17,10 +17,10 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: 'rzqff1kc',
-        dataset: 'production',
-        watchMode: false
-        // token: process.env.GATSBY_SANITY_TOKEN
+        projectId: process.env.GATSBY_SANITY_ID,
+        dataset: process.env.GATSBY_SANITY_DATASET,
+        watchMode: false,
+        token: process.env.GATSBY_SANITY_TOKEN
       }
     },
     {
