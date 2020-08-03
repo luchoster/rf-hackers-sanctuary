@@ -157,13 +157,18 @@
             text-transform: uppercase;
 
             &.dropdown {
-              @include icon;
-
-              &:before {
-                content: '\f107';
-                color: _palette(fg-light);
-                margin-right: 0.5em;
+              display: flex;
+              align-items: center;
+              .dropdown-icon {
+                margin-right: 10px;
               }
+              // @include icon;
+
+              // &:before {
+              //   content: '\f107';
+              //   color: _palette(fg-light);
+              //   margin-right: 0.5em;
+              // }
             }
           }
 

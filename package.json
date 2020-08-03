@@ -41,6 +41,7 @@
     "react-device-detect": "^1.13.1",
     "react-headroom": "^3.0.0",
     "react-helmet": "^6.0.0",
+    "react-icons": "^3.10.0",
     "react-loadable": "^5.5.0",
     "react-measure": "^2.3.0",
     "react-spring": "^8.0.27",

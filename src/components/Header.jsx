@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { FaAngleDown } from 'react-icons/fa'
 
 import { mapIndexed, notNilOrEmpty } from '../lib/Helpers'
 library.add(fab)
@@ -244,7 +245,7 @@ export default () => {
                     }
                     ref={DropdownParent}
                   >
-                    {item.page_title}
+                    <FaAngleDown className="dropdown-icon" /> {item.page_title}
                   </div>
                   <ul
                     className={`dropotron level-0 center animated ${
