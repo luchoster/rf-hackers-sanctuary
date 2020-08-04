@@ -96,10 +96,12 @@ export default props => {
         className={`page page--bg page--${page.slug.current}`}
         ref={pageRef}
       >
-        <h1 className="glitch" data-text={page.pageTitle}>
-          {page.pageTitle}
-        </h1>
-        {content}
+        <div className="container">
+          <h1 className="glitch" data-text={page.pageTitle}>
+            {page.pageTitle}
+          </h1>
+          {content}
+        </div>
       </motion.div>
     </Layout>
   )

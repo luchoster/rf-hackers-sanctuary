@@ -74,7 +74,7 @@ export default () => {
           <AniLink
             paintDrip
             to="/"
-            duration={1}
+            duration={0.75}
             direction="down"
             hex="#212121"
             bg={`
@@ -117,7 +117,7 @@ export default () => {
                 onClick={toggleDrawer}
                 className="title"
                 to="/"
-                duration={1}
+                duration={0.75}
                 direction="down"
                 bg={`
                   url(${require('../assets/img/web_background.jpg')})
@@ -149,7 +149,7 @@ export default () => {
                               hex="#212121"
                               className="title"
                               to={`/${subMenuItem.subMenuSlug}`}
-                              duration={1.5}
+                              duration={0.75}
                               direction="down"
                               bg={`
                               url(${require('../assets/img/web_background.jpg')})
@@ -191,7 +191,7 @@ export default () => {
                     hex="#212121"
                     className="title"
                     to={`/${item.slug}`}
-                    duration={1.5}
+                    duration={0.75}
                     direction="down"
                     bg={`
                     url(${require('../assets/img/web_background.jpg')})
@@ -218,7 +218,7 @@ export default () => {
                 hex="#212121"
                 className="title"
                 to="/"
-                duration={1}
+                duration={0.75}
                 direction="down"
                 bg={`
                   url(${require('../assets/img/web_background.jpg')})
@@ -260,7 +260,7 @@ export default () => {
                             hex="#212121"
                             className="title"
                             to={`/${subMenuItem.subMenuSlug}`}
-                            duration={1.5}
+                            duration={0.75}
                             direction="down"
                             bg={`
                               url(${require('../assets/img/web_background.jpg')})
@@ -296,7 +296,7 @@ export default () => {
                     hex="#212121"
                     className="title"
                     to={`/${item.slug}`}
-                    duration={1.5}
+                    duration={0.75}
                     direction="down"
                     bg={`
                       url(${settings.logo.asset.fluid.src})

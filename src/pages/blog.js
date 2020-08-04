@@ -68,7 +68,7 @@ export default props => {
                   paintDrip
                   hex="#212121"
                   to={`/blog/${post.slug.current}`}
-                  duration={1.5}
+                  duration={0.75}
                   direction="down"
                 >
                   Read More
