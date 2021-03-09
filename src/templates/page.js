@@ -1,20 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { motion } from 'framer-motion'
-import { config } from 'react-spring/renderprops'
-import { isMobile } from 'react-device-detect'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import TrailsGrid from '../components/TrailsGrid/Grid'
-import Cell from '../components/TrailsGrid/Crew'
 import Crew from '../components/Sections/Crew'
 
 import BlockContent from '../components/BlockContent'
 import SponsorsGrid from '../components/Sections/SponsorsGrid'
 import Title from '../components/Sections/Title'
 
-export default props => {
+export default function Page(props) {
   const {
     data: { sanityPage: page }
   } = props
@@ -22,7 +18,7 @@ export default props => {
   const pageRef = React.useRef(null)
 
   const content = (page._rawContent || [])
-    .filter(c => !c.disabled)
+    .filter((c) => !c.disabled)
     .map((c, i) => {
       let el = null
       switch (c._type) {

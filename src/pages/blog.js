@@ -1,7 +1,6 @@
 import * as R from 'ramda'
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import { motion } from 'framer-motion'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
@@ -10,7 +9,7 @@ import SEO from '../components/SEO'
 
 import { mapIndexed } from '../lib/Helpers'
 
-export default props => {
+export default function Blog(props) {
   const {
     data: {
       allSanityPost: { edges: posts }

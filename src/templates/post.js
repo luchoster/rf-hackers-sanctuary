@@ -1,19 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { motion } from 'framer-motion'
-import { config } from 'react-spring/renderprops'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import TrailsGrid from '../components/TrailsGrid/Grid'
-import Cell from '../components/TrailsGrid/Crew'
 
 import BlockContent from '../components/BlockContent'
-import SponsorsGrid from '../components/Sections/SponsorsGrid'
-import Title from '../components/Sections/Title'
 
-export default props => {
+export default function Posts(props) {
   const {
     data: { sanityPost: post }
   } = props

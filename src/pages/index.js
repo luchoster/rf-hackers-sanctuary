@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import { motion } from 'framer-motion'
 
 import Layout from '../components/Layout'
@@ -16,7 +15,7 @@ const frameVariants = {
 
 const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
 
-export default props => {
+export default function IndexPage(props) {
   const {
     data: { sanityHomePage: homePage }
   } = props
@@ -42,9 +41,11 @@ export default props => {
         <motion.div
           className="frame"
           whileHover="hover"
-          variants={frameVariants}
           transition={transition}
-          variants={{ exit: { transition: { staggerChildren: 0.1 } } }}
+          variants={{
+            frameVariants,
+            exit: { transition: { staggerChildren: 0.1 } }
+          }}
         >
           <motion.img
             drag
