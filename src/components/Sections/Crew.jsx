@@ -1,16 +1,14 @@
-import * as R from 'ramda'
 import React from 'react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes, faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 import { mapIndexed, notNilOrEmpty } from '../../lib/Helpers'
 import BlockContent from '../BlockContent'
 
-export default props => {
-  console.log(props)
+export default (props) => {
   const { blocks: crew } = props
   const CrewModal = withReactContent(Swal)
   return (
